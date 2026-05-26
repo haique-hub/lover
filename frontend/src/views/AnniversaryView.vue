@@ -316,7 +316,7 @@
                 <span>距离下一次</span>
                 <strong>{{ getCardCountText(activeAnniversary) }}</strong>
               </div>
-              <div class="detail-metric">
+              <div v-if="activeAnniversary.daysSinceStart != null" class="detail-metric">
                 <span>已经走过</span>
                 <strong>{{ activeAnniversary.daysSinceStart }} 天</strong>
               </div>
@@ -603,7 +603,7 @@ const getCardHintText = (item) => {
   if (item.daysUntilNext == null) {
     return `从 ${formatAnniversaryDisplay(item, false)} 开始算起`
   }
-  return `已经一起记住了 ${item.daysSinceStart} 天`
+  return item.daysSinceStart != null ? `已经一起记住了 ${item.daysSinceStart} 天` : `还没到这一天`
 }
 
 onMounted(loadData)

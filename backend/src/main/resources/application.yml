@@ -32,5 +32,5 @@ mybatis-plus:
       logic-not-delete-value: 0
 
 jwt:
-  secret: ${JWT_SECRET:change-me-to-a-very-long-secret-key-for-jwt-signature}
+  secret: ${JWT_SECRET:}
   expire-hours: ${JWT_EXPIRE_HOURS:72}

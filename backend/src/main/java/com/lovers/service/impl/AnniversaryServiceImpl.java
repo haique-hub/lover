@@ -235,7 +235,8 @@ public class AnniversaryServiceImpl implements AnniversaryService {
         vo.setExpired(expired);
         vo.setToday(nextOccurrenceDate != null && ChronoUnit.DAYS.between(today, nextOccurrenceDate) == 0);
         vo.setDaysUntilNext(nextOccurrenceDate == null ? null : ChronoUnit.DAYS.between(today, nextOccurrenceDate));
-        vo.setDaysSinceStart(ChronoUnit.DAYS.between(anniversary.getAnniversaryDate(), today));
+        long daysSinceStart = ChronoUnit.DAYS.between(anniversary.getAnniversaryDate(), today);
+        vo.setDaysSinceStart(daysSinceStart < 0 ? null : daysSinceStart);
         return vo;
     }
 
