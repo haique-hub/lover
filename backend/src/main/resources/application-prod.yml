@@ -1,0 +1,4 @@
+# Production profile - loaded when SPRING_PROFILES_ACTIVE=prod
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
